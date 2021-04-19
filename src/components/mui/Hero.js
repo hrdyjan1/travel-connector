@@ -29,7 +29,7 @@ const Hero = props => {
             title={
               <span>
                 This is{' '}
-                <Typography component="span" variant="inherit" color="primary">Travel connector</Typography>
+                <Typography component="span" variant="inherit" color="primary">Travel Connector</Typography>
                 <br />
                 <span>where people say nothing is impossible, but I do nothing every day.</span>
               </span>
