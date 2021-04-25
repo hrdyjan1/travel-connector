@@ -23,6 +23,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
   },
   form: {
+    [theme.breakpoints.down('sm')]: {
+      margin: '2px',
+      width: 'unset',
+    },
     fontfamily: 'Georgia',
     padding: '20px',
     width: '100%',
@@ -126,7 +130,11 @@ function JoinUs() {
       </Button>
       <Modal open={isOpen} onClose={close} className={classes.modal}>
         <form onSubmit={handleSubmit} className={classes.form}>
-          <SectionHeader title='Join us' subtitle='Add me to the list of students' className={classes.sectionHeader}/>
+          <SectionHeader
+            title='Join us'
+            subtitle='Add me to the list of students'
+            className={classes.sectionHeader}
+          />
           <TextField
             fullWidth
             variant='outlined'
