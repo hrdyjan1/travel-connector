@@ -12,9 +12,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
   title: {
     flexGrow: 1,
   },
@@ -29,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
     paddingBottom: theme.spacing(1),
     [theme.breakpoints.up('md')]: {
-        paddingBottom: theme.spacing(2),
+      paddingBottom: theme.spacing(2),
     },
   },
 }));
@@ -45,12 +42,7 @@ function Header() {
             <Typography variant='h6' className={classes.title}>
               Travel Connector
             </Typography>
-            <IconButton
-              edge='start'
-              className={classes.menuButton}
-              color='inherit'
-              aria-label='menu'
-            >
+            <IconButton edge='start' color='inherit' aria-label='menu'>
               <MenuIcon />
             </IconButton>
           </Toolbar>
