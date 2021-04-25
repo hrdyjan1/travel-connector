@@ -3,6 +3,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { useMediaQuery, Grid, Button, Typography } from '@material-ui/core';
 import { Image } from './Image';
 import { SectionHeader } from './SectionHeader';
+import { JoinUs } from '../spec/JoinUs';
 
 const useStyles = makeStyles(theme => ({
   image: {
@@ -36,9 +37,7 @@ const Hero = props => {
             }
             subtitle="At every party there are two kinds of people – those who want to go home and those who don’t. The trouble is, they are usually married to each other."
             ctaGroup={[
-              <Button variant="contained" color="primary" size="large">
-                Join us
-              </Button>,
+              <JoinUs />,
               <Button variant="outlined" color="primary" size="large">
                 Why connect
               </Button>,
