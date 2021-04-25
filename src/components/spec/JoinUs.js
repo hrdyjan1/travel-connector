@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
   },
   area: {
     background: 'rgba(255,255,255,.1)',
-    border: 'none',
     borderRadius: '4px',
     margin: '1em auto',
     fontSize: '15px',
@@ -56,12 +55,6 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     marginBottom: '10px',
     padding: '15px',
-  },
-  notchedOutline: {
-    borderColor: '#e8eeef !important',
-  },
-  focused: {
-    backgroundColor: '#e8eeef !important',
   },
 }));
 
