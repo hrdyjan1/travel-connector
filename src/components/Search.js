@@ -81,14 +81,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const tags = [
-  'Germany',
-  'Female',
-  'Economy',
-  'Hair to the ground',
-  'Not fat',
-  'Not fat, seriously!',
-];
 export const students = [
   {
     color: colors.blue[500],
