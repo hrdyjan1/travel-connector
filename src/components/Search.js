@@ -8,6 +8,7 @@ import match from 'autosuggest-highlight/match';
 import { Grid, colors, useMediaQuery, InputAdornment, Button, Typography } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
+import ArrowDown from '@material-ui/icons/ArrowDropDown';
 import { Student } from './Student';
 
 const useStyles = makeStyles((theme) => ({
@@ -186,7 +187,7 @@ export const students = [
 const choices = [
   {
     value: 'ALL',
-    label: 'All',
+    label: 'All ✨',
   },
   {
     value: 'COU',
@@ -231,6 +232,7 @@ const Search = (props) => {
   const [value, setValue] = React.useState(null);
   const [filters, setFilters] = React.useState([]);
   const [choice, setChoice] = React.useState(choices[0]);
+  const isSearching = choices[0].value === choice.value;
 
   const handleChangeChoice = (event) => {
     setValue(null);
@@ -238,7 +240,9 @@ const Search = (props) => {
   };
 
   const tryToAddFilter = () => {
-    if (value) {
+    if (isSearching) {
+      // TODO
+    } else if (value && value.label.length > 0) {
       setFilters((fs) => [...fs, { ...value, label: `${choice.label} - ${value.label}` }]);
       setValue(null);
       setChoice(choices[0]);
@@ -280,11 +284,17 @@ const Search = (props) => {
 
             <Autocomplete
               freeSolo
+              onInputChange={(e, v) => {
+                setValue({ value: v, label: v });
+              }}
               value={value}
               id='id-search-input'
               className={classes.input}
               options={autocompleteList}
-              onChange={(_, v) => setValue(v)}
+              onChange={(e, v) => {
+                console.log(e);
+                setValue(v);
+              }}
               getOptionLabel={(option) => option.label}
               renderOption={(option, { inputValue }) => {
                 const matches = match(option.label, inputValue);
@@ -307,7 +317,11 @@ const Search = (props) => {
                     ...params.InputProps,
                     startAdornment: (
                       <InputAdornment position='start' className={classes.icon}>
-                        <SearchIcon fontIconColor={colors.blueGrey[900]} />
+                        {isSearching ? (
+                          <SearchIcon fontIconColor={colors.blueGrey[900]} />
+                        ) : (
+                          <ArrowDown fontIconColor={colors.blueGrey[900]} />
+                        )}
                       </InputAdornment>
                     ),
                   }}
@@ -323,7 +337,7 @@ const Search = (props) => {
               onClick={tryToAddFilter}
               className={classes.searchButton}
             >
-              Search
+              {isSearching ? 'Search' : 'Add filter'}
             </Button>
           </div>
         </Grid>
@@ -366,7 +380,7 @@ const Search = (props) => {
         ))}
         <Grid item container justify='center' xs={12} data-aos='fade-up'>
           <Button variant='contained' color='primary' size='large'>
-            See all jobs
+            See all travelers
           </Button>
         </Grid>
       </Grid>
