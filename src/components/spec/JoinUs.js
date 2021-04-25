@@ -42,9 +42,10 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '15px',
     outline: '0',
     boxSizing: 'border-box',
-    backgroundColor: '#e8eeef',
+    backgroundColor: '#e8eeef !important',
     color: '#8a97a0',
     borderWidth: '0px',
+    boxShadow: '0 4px 14px 0 rgba(0, 0, 0, 0.11)',
   },
   submit: {
     color: '#FFF',
@@ -56,12 +57,12 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '10px',
     padding: '15px',
   },
-  root: {
-    '&:hover $notchedOutline': {
-      borderColor: theme.palette.primary.main,
-    },
+  notchedOutline: {
+    borderColor: '#e8eeef !important',
   },
-  focused: {},
+  focused: {
+    backgroundColor: '#e8eeef !important',
+  },
 }));
 
 const countries = [
@@ -144,7 +145,7 @@ function JoinUs() {
             InputProps={{
               disableUnderline: true,
               classes: {
-                root: classes.root,
+                focused: classes.focused,
                 notchedOutline: classes.notchedOutline,
               },
             }}
@@ -162,7 +163,6 @@ function JoinUs() {
             InputProps={{
               disableUnderline: true,
               classes: {
-                root: classes.root,
                 notchedOutline: classes.notchedOutline,
               },
             }}
@@ -186,7 +186,6 @@ function JoinUs() {
             InputProps={{
               disableUnderline: true,
               classes: {
-                root: classes.root,
                 notchedOutline: classes.notchedOutline,
               },
             }}
