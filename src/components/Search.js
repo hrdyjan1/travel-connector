@@ -5,7 +5,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
-import { Grid, colors, useMediaQuery, InputAdornment, Button, Typography } from '@material-ui/core';
+import { Grid, colors, useMediaQuery, InputAdornment, Button, Chip } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowDown from '@material-ui/icons/ArrowDropDown';
@@ -70,17 +70,27 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
   tag: {
-    padding: theme.spacing(1 / 2, 1),
-    borderRadius: theme.spacing(1 / 2),
-    background: theme.palette.secondary.light,
     color: 'white',
     margin: theme.spacing(0, 1, 1, 0),
-    cursor: 'pointer',
     [theme.breakpoints.up('md')]: {
       margin: theme.spacing(0, 2, 2, 0),
     },
   },
 }));
+
+const UNI = {
+  UMEA: 'UMEA',
+  CTU: 'CTU',
+  HARVARD: 'Harvard',
+};
+
+const COUNTRY = {
+  USA: 'USA',
+  JAPAN: 'Japan',
+  FRANCE: 'France',
+  GERMANY: 'Germany',
+  IRELAND: 'Ireland',
+};
 
 export const students = [
   {
@@ -88,99 +98,99 @@ export const students = [
     title: 'Economy',
     jobTitle: 'Brain design',
     type: 'Master',
-    location: 'Milan, Italy',
-    date: 'UMEA',
+    country: COUNTRY.IRELAND,
+    uni: UNI.UMEA,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    companyName: 'Mc Donald Trump',
+    name: 'Mc Donald Trump',
   },
   {
     color: colors.purple[500],
     title: 'Business',
     jobTitle: 'Brain design for dummies',
     type: 'Master',
-    location: 'Paris, France',
-    date: 'UMEA',
+    country: COUNTRY.GERMANY,
+    uni: UNI.UMEA,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    companyName: 'Mc Donald Trump',
+    name: 'Mc Donald Trump',
   },
   {
     color: colors.purple[500],
     title: 'Business',
     jobTitle: 'Business predictions',
     type: 'Bachelor',
-    location: 'Stockholm, Sweden',
-    date: 'Stockholm University',
+    country: COUNTRY.JAPAN,
+    uni: UNI.CTU,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    companyName: 'Mc Donald Trump',
+    name: 'Mc Donald Trump',
   },
   {
     color: colors.purple[500],
     title: 'Business',
     jobTitle: 'How to count to 10',
     type: 'Bachelor',
-    location: 'Paris, France',
-    date: 'Stockholm University',
+    country: COUNTRY.FRANCE,
+    uni: UNI.HARVARD,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    companyName: 'Mc Donald Trump',
+    name: 'Mc Donald Trump',
   },
   {
     color: colors.blue[500],
     title: 'Economy',
     jobTitle: 'Corruption in politics',
     type: 'Bachelor',
-    location: 'Berlin, Germany',
-    date: 'Paris university',
+    country: COUNTRY.GERMANY,
+    uni: UNI.HARVARD,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    companyName: 'Mc Donald Trump',
+    name: 'Mc Donald Trump',
   },
   {
     color: colors.green[500],
     title: 'Greenpeace',
     jobTitle: 'Drugs',
     type: 'Bachelor',
-    location: 'Paris, France',
-    date: 'UMEA university',
+    country: COUNTRY.USA,
+    uni: UNI.CTU,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    companyName: 'Mc Donald Trump',
+    name: 'Mc Donald Trump',
   },
   {
     color: colors.pink[500],
     title: 'IT',
     jobTitle: 'Mobile development',
     type: 'Bachelor',
-    location: 'Paris, France',
-    date: 'UMEA university',
+    country: COUNTRY.USA,
+    uni: UNI.CTU,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    companyName: 'Mc Donald Trump',
+    name: 'Mc Donald Trump',
   },
   {
     color: colors.pink[500],
     title: 'IT',
     jobTitle: 'Machine learning',
     type: 'Bachelor',
-    location: 'Prague, THE BEST COUNTRY IN THE WORLD',
-    date: 'UMEA university',
+    country: COUNTRY.JAPAN,
+    uni: UNI.UMEA,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    companyName: 'Mc Donald Trump',
+    name: 'Mc Donald Trump',
   },
   {
     color: colors.purple[500],
     title: 'Business',
     jobTitle: 'Technical business tools',
     type: 'Master',
-    location: 'Los Angeles, Cali',
-    date: 'Stockholm University',
+    country: COUNTRY.IRELAND,
+    uni: UNI.HARVARD,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    companyName: 'Mc Donald Trump',
+    name: 'Mc Donald Trump',
   },
 ];
 
@@ -200,18 +210,17 @@ const choices = [
 ];
 
 const listOfCountries = [
-  { label: 'Sweden', value: 'SWE' },
-  { label: 'Brazil', value: 'BRA' },
-  { label: 'China', value: 'CHI' },
-  { label: 'Austria', value: 'AUS' },
-  { label: 'Russia', value: 'RUS' },
-  { label: 'Ireland', value: 'IRE' },
+  { label: COUNTRY.USA, value: COUNTRY.USA, type: 'COU' },
+  { label: COUNTRY.JAPAN, value: COUNTRY.JAPAN, type: 'COU' },
+  { label: COUNTRY.FRANCE, value: COUNTRY.FRANCE, type: 'COU' },
+  { label: COUNTRY.GERMANY, value: COUNTRY.GERMANY, type: 'COU' },
+  { label: COUNTRY.IRELAND, value: COUNTRY.IRELAND, type: 'COU' },
 ];
 
 const listOfUniversities = [
-  { label: 'Umea', value: 'UME' },
-  { label: 'CTU', value: 'CTU' },
-  { label: 'Harvard', value: 'HAR' },
+  { label: UNI.UMEA, value: UNI.UMEA, type: 'UNI' },
+  { label: UNI.CTU, value: UNI.CTU, type: 'UNI' },
+  { label: UNI.HARVARD, value: UNI.HARVARD, type: 'UNI' },
 ];
 
 function handleList(choice) {
@@ -225,6 +234,15 @@ function handleList(choice) {
   }
 }
 
+function getFilteredStudents(students, filters) {
+  if (filters?.length === 0) {
+    return students;
+  }
+
+  console.log(filters);
+  return students.filter((s) => filters.every((f) => f.value === s.uni || f.value === s.country));
+}
+
 const Search = (props) => {
   const { data, className, ...rest } = props;
 
@@ -234,6 +252,8 @@ const Search = (props) => {
   const [choice, setChoice] = React.useState(choices[0]);
   const isSearching = choices[0].value === choice.value;
 
+  const filteredStudents = getFilteredStudents(students, filters);
+
   const handleChangeChoice = (event) => {
     setValue(null);
     setChoice(event.target.value);
@@ -241,12 +261,16 @@ const Search = (props) => {
 
   const tryToAddFilter = () => {
     if (isSearching) {
-      // TODO
+      
     } else if (value && value.label.length > 0) {
       setFilters((fs) => [...fs, { ...value, label: `${choice.label} - ${value.label}` }]);
       setValue(null);
       setChoice(choices[0]);
     }
+  };
+
+  const deleteFilter = (value) => {
+    setFilters((fs) => fs.filter((f) => f.value !== value));
   };
 
   const autocompleteList = handleList(choice);
@@ -291,10 +315,7 @@ const Search = (props) => {
               id='id-search-input'
               className={classes.input}
               options={autocompleteList}
-              onChange={(e, v) => {
-                console.log(e);
-                setValue(v);
-              }}
+              onChange={(e, v) => setValue(v)}
               getOptionLabel={(option) => option.label}
               renderOption={(option, { inputValue }) => {
                 const matches = match(option.label, inputValue);
@@ -344,15 +365,21 @@ const Search = (props) => {
         <Grid item xs={12}>
           <div className={classes.tags}>
             {filters.map((item, index) => (
-              <Typography variant='caption' color='primary' className={classes.tag} key={index}>
-                {item.label}
-              </Typography>
+              <div className={classes.tag}>
+                <Chip
+                  key={index}
+                  color='primary'
+                  size='small'
+                  label={item.label}
+                  onDelete={() => deleteFilter(item.value)}
+                />
+              </div>
             ))}
           </div>
         </Grid>
       </Grid>
       <Grid container spacing={isMd ? 4 : 2}>
-        {students.map((item, index) => (
+        {filteredStudents.map((item, index) => (
           <Grid
             key={index}
             item
@@ -370,10 +397,10 @@ const Search = (props) => {
               jobTitle={item.jobTitle}
               badgeColor={item.color}
               badgeTitle={item.title}
-              jobLocation={item.location}
+              country={item.country}
               jobType={item.type}
-              jobDate={item.date}
-              companyName={item.companyName}
+              uni={item.uni}
+              name={item.name}
               companyLogo={item.companyLogo}
             />
           </Grid>

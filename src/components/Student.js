@@ -45,11 +45,11 @@ const Student = (props) => {
     badgeColor,
     badgeTitle,
     jobTitle,
-    jobLocation,
+    country,
     jobType,
-    jobDate,
+    uni,
     companyLogo,
-    companyName,
+    name,
     className,
     ...rest
   } = props;
@@ -74,7 +74,7 @@ const Student = (props) => {
       <Grid container spacing={2}>
         <Grid item container alignItems='center' xs={12}>
           <Typography component='span' variant='subtitle1' color='textSecondary'>
-            {jobLocation}
+            {country}
           </Typography>
           <span className={clsx(classes.dot, classes.dotSmall, classes.dotMargin)} />
           <Typography component='span' variant='subtitle1' color='textSecondary'>
@@ -84,9 +84,9 @@ const Student = (props) => {
       </Grid>
       <ListItem disableGutters>
         <ListItemAvatar>
-          <Avatar src={companyLogo} alt={companyName} />
+          <Avatar src={companyLogo} alt={name} />
         </ListItemAvatar>
-        <ListItemText primary={companyName} secondary={jobDate} />
+        <ListItemText primary={name} secondary={uni} />
       </ListItem>
     </CardBase>
   );
