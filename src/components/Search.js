@@ -102,7 +102,7 @@ export const students = [
     uni: UNI.UMEA,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Mc Donald Trump',
+    name: 'Hanne Wiegand',
   },
   {
     color: colors.purple[500],
@@ -124,7 +124,7 @@ export const students = [
     uni: UNI.CTU,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Mc Donald Trump',
+    name: 'Leni Tasoula',
   },
   {
     color: colors.purple[500],
@@ -135,7 +135,7 @@ export const students = [
     uni: UNI.HARVARD,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Mc Donald Trump',
+    name: 'Jennifer Evdokia',
   },
   {
     color: colors.blue[500],
@@ -146,7 +146,7 @@ export const students = [
     uni: UNI.HARVARD,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Mc Donald Trump',
+    name: 'Julius Makaio',
   },
   {
     color: colors.green[500],
@@ -157,7 +157,7 @@ export const students = [
     uni: UNI.CTU,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Mc Donald Trump',
+    name: 'Nikoleta Angelos',
   },
   {
     color: colors.pink[500],
@@ -168,7 +168,7 @@ export const students = [
     uni: UNI.CTU,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Mc Donald Trump',
+    name: 'Angela Steffi',
   },
   {
     color: colors.pink[500],
@@ -179,7 +179,7 @@ export const students = [
     uni: UNI.UMEA,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Mc Donald Trump',
+    name: 'Olivia Panagiota',
   },
   {
     color: colors.purple[500],
@@ -190,14 +190,25 @@ export const students = [
     uni: UNI.HARVARD,
     companyLogo:
       'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Mc Donald Trump',
+    name: 'Linda Kunigunde',
+  },
+  {
+    color: colors.purple[500],
+    title: 'General studies',
+    jobTitle: 'Social rights',
+    type: 'Master',
+    country: COUNTRY.IRELAND,
+    uni: UNI.UMEA,
+    companyLogo:
+      'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
+    name: 'Norbert Akakios',
   },
 ];
 
 const choices = [
   {
-    value: 'ALL',
-    label: 'All ✨',
+    value: 'NAM',
+    label: 'Name ✨',
   },
   {
     value: 'COU',
@@ -234,13 +245,19 @@ function handleList(choice) {
   }
 }
 
+function hasString(value, search) {
+  const handleCase = (t) => t.toLocaleLowerCase();
+  return handleCase(value).includes(handleCase(search));
+}
+
 function getFilteredStudents(students, filters) {
   if (filters?.length === 0) {
     return students;
   }
 
-  console.log(filters);
-  return students.filter((s) => filters.every((f) => f.value === s.uni || f.value === s.country));
+  return students.filter((s) =>
+    filters.every((f) => f.value === s.uni || f.value === s.country || hasString(s.name, f.value))
+  );
 }
 
 const Search = (props) => {
@@ -260,9 +277,7 @@ const Search = (props) => {
   };
 
   const tryToAddFilter = () => {
-    if (isSearching) {
-      
-    } else if (value && value.label.length > 0) {
+    if (value && value.label.length > 0) {
       setFilters((fs) => [...fs, { ...value, label: `${choice.label} - ${value.label}` }]);
       setValue(null);
       setChoice(choices[0]);
@@ -405,11 +420,11 @@ const Search = (props) => {
             />
           </Grid>
         ))}
-        <Grid item container justify='center' xs={12} data-aos='fade-up'>
+        {/* <Grid item container justify='center' xs={12} data-aos='fade-up'>
           <Button variant='contained' color='primary' size='large'>
             See all travelers
           </Button>
-        </Grid>
+        </Grid> */}
       </Grid>
     </div>
   );
