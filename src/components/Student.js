@@ -43,10 +43,11 @@ const useStyles = makeStyles((theme) => ({
 const Student = (props) => {
   const {
     badgeColor,
-    badgeTitle,
-    jobTitle,
+    title,
+    level,
     country,
-    jobType,
+    type,
+    typeDetail,
     uni,
     companyLogo,
     name,
@@ -62,12 +63,12 @@ const Student = (props) => {
         <Grid item container alignItems='center' xs={12}>
           <span className={clsx(classes.dot, classes.dotBig)} style={{ background: badgeColor }} />
           <Typography component='span' variant='body2' color='textPrimary'>
-            {badgeTitle}
+            {type}
           </Typography>
         </Grid>
         <Grid item xs={12}>
           <Typography variant='h6' className={classes.jobTitle}>
-            {jobTitle}
+            {typeDetail}
           </Typography>
         </Grid>
       </Grid>
@@ -78,7 +79,7 @@ const Student = (props) => {
           </Typography>
           <span className={clsx(classes.dot, classes.dotSmall, classes.dotMargin)} />
           <Typography component='span' variant='subtitle1' color='textSecondary'>
-            {jobType}
+            {level}
           </Typography>
         </Grid>
       </Grid>

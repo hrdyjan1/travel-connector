@@ -10,6 +10,15 @@ import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowDown from '@material-ui/icons/ArrowDropDown';
 import { Student } from './Student';
+import {
+  listOfCountries,
+  listOfUniversities,
+  listOfLevels,
+  listOfTypes,
+  students,
+  TYPE,
+  choices,
+} from '../data/index';
 
 const useStyles = makeStyles((theme) => ({
   searchInputContainer: {
@@ -78,168 +87,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UNI = {
-  UMEA: 'UMEA',
-  CTU: 'CTU',
-  HARVARD: 'Harvard',
-};
-
-const COUNTRY = {
-  USA: 'USA',
-  JAPAN: 'Japan',
-  FRANCE: 'France',
-  GERMANY: 'Germany',
-  IRELAND: 'Ireland',
-};
-
-export const students = [
-  {
-    color: colors.blue[500],
-    title: 'Economy',
-    jobTitle: 'Brain design',
-    type: 'Master',
-    country: COUNTRY.IRELAND,
-    uni: UNI.UMEA,
-    companyLogo:
-      'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Hanne Wiegand',
-  },
-  {
-    color: colors.purple[500],
-    title: 'Business',
-    jobTitle: 'Brain design for dummies',
-    type: 'Master',
-    country: COUNTRY.GERMANY,
-    uni: UNI.UMEA,
-    companyLogo:
-      'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Mc Donald Trump',
-  },
-  {
-    color: colors.purple[500],
-    title: 'Business',
-    jobTitle: 'Business predictions',
-    type: 'Bachelor',
-    country: COUNTRY.JAPAN,
-    uni: UNI.CTU,
-    companyLogo:
-      'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Leni Tasoula',
-  },
-  {
-    color: colors.purple[500],
-    title: 'Business',
-    jobTitle: 'How to count to 10',
-    type: 'Bachelor',
-    country: COUNTRY.FRANCE,
-    uni: UNI.HARVARD,
-    companyLogo:
-      'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Jennifer Evdokia',
-  },
-  {
-    color: colors.blue[500],
-    title: 'Economy',
-    jobTitle: 'Corruption in politics',
-    type: 'Bachelor',
-    country: COUNTRY.GERMANY,
-    uni: UNI.HARVARD,
-    companyLogo:
-      'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Julius Makaio',
-  },
-  {
-    color: colors.green[500],
-    title: 'Greenpeace',
-    jobTitle: 'Drugs',
-    type: 'Bachelor',
-    country: COUNTRY.USA,
-    uni: UNI.CTU,
-    companyLogo:
-      'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Nikoleta Angelos',
-  },
-  {
-    color: colors.pink[500],
-    title: 'IT',
-    jobTitle: 'Mobile development',
-    type: 'Bachelor',
-    country: COUNTRY.USA,
-    uni: UNI.CTU,
-    companyLogo:
-      'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Angela Steffi',
-  },
-  {
-    color: colors.pink[500],
-    title: 'IT',
-    jobTitle: 'Machine learning',
-    type: 'Bachelor',
-    country: COUNTRY.JAPAN,
-    uni: UNI.UMEA,
-    companyLogo:
-      'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Olivia Panagiota',
-  },
-  {
-    color: colors.purple[500],
-    title: 'Business',
-    jobTitle: 'Technical business tools',
-    type: 'Master',
-    country: COUNTRY.IRELAND,
-    uni: UNI.HARVARD,
-    companyLogo:
-      'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Linda Kunigunde',
-  },
-  {
-    color: colors.purple[500],
-    title: 'General studies',
-    jobTitle: 'Social rights',
-    type: 'Master',
-    country: COUNTRY.IRELAND,
-    uni: UNI.UMEA,
-    companyLogo:
-      'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
-    name: 'Norbert Akakios',
-  },
-];
-
-const choices = [
-  {
-    value: 'NAM',
-    label: 'Name ✨',
-  },
-  {
-    value: 'COU',
-    label: 'Countries 🏆',
-  },
-  {
-    value: 'UNI',
-    label: 'Universities 🎮',
-  },
-];
-
-const listOfCountries = [
-  { label: COUNTRY.USA, value: COUNTRY.USA, type: 'COU' },
-  { label: COUNTRY.JAPAN, value: COUNTRY.JAPAN, type: 'COU' },
-  { label: COUNTRY.FRANCE, value: COUNTRY.FRANCE, type: 'COU' },
-  { label: COUNTRY.GERMANY, value: COUNTRY.GERMANY, type: 'COU' },
-  { label: COUNTRY.IRELAND, value: COUNTRY.IRELAND, type: 'COU' },
-];
-
-const listOfUniversities = [
-  { label: UNI.UMEA, value: UNI.UMEA, type: 'UNI' },
-  { label: UNI.CTU, value: UNI.CTU, type: 'UNI' },
-  { label: UNI.HARVARD, value: UNI.HARVARD, type: 'UNI' },
-];
-
 function handleList(choice) {
   switch (choice.value) {
     case 'COU':
       return listOfCountries;
     case 'UNI':
       return listOfUniversities;
+    case 'LEV':
+      return listOfLevels;
+    case 'TYP':
+      return listOfTypes;
     default:
       return [];
   }
@@ -250,13 +107,35 @@ function hasString(value, search) {
   return handleCase(value).includes(handleCase(search));
 }
 
+function handleBadgeColorViaType(type) {
+  switch (type) {
+    case TYPE.ECONOMY:
+      return colors.blue[500];
+    case TYPE.BUSINESS:
+      return colors.red[500];
+    case TYPE.GREENPEACE:
+      return colors.green[500];
+    case TYPE.IT:
+      return colors.orange[500];
+    default:
+      return colors.grey[500];
+  }
+}
+
 function getFilteredStudents(students, filters) {
   if (filters?.length === 0) {
     return students;
   }
 
   return students.filter((s) =>
-    filters.every((f) => f.value === s.uni || f.value === s.country || hasString(s.name, f.value))
+    filters.every(
+      (f) =>
+        f.value === s.uni ||
+        f.value === s.type ||
+        f.value === s.level ||
+        f.value === s.country ||
+        hasString(s.name, f.value)
+    )
   );
 }
 
@@ -409,22 +288,18 @@ const Search = (props) => {
             <Student
               variant='outlined'
               liftUp
-              jobTitle={item.jobTitle}
-              badgeColor={item.color}
-              badgeTitle={item.title}
+              type={item.type}
+              typeDetail={item.typeDetail}
+              badgeColor={handleBadgeColorViaType(item.type)}
+              title={item.title}
               country={item.country}
-              jobType={item.type}
+              level={item.level}
               uni={item.uni}
               name={item.name}
               companyLogo={item.companyLogo}
             />
           </Grid>
         ))}
-        {/* <Grid item container justify='center' xs={12} data-aos='fade-up'>
-          <Button variant='contained' color='primary' size='large'>
-            See all travelers
-          </Button>
-        </Grid> */}
       </Grid>
     </div>
   );

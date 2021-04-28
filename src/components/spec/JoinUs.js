@@ -5,6 +5,7 @@ import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import { SectionHeader } from '../mui/SectionHeader';
+import { listOfCountries, listOfTypes, listOfUniversities, listOfLevels } from '../../data/index';
 
 const useStyles = makeStyles((theme) => ({
   sectionHeader: {
@@ -58,49 +59,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const countries = [
-  {
-    value: 'UND',
-    label: '-',
-  },
-  {
-    value: 'SWE',
-    label: 'Sweden 🍕',
-  },
-  {
-    value: 'ENG',
-    label: 'England 🍟',
-  },
-  {
-    value: 'GER',
-    label: 'Germany 🌭',
-  },
-];
-
-const universities = [
-  {
-    value: 'UND',
-    label: '-',
-  },
-  {
-    value: 'UME',
-    label: 'Umea 🚗',
-  },
-  {
-    value: 'STC',
-    label: 'Stockholm UNI 🚓',
-  },
-  {
-    value: 'PAR',
-    label: 'Paris technical university 🚑',
-  },
-];
-
 function JoinUs() {
   const classes = useStyles();
   const [isOpen, setOpen] = React.useState(false);
-  const [country, setCountry] = React.useState(countries[0].value);
-  const [university, setUniversity] = React.useState(universities[0].value);
+  const [type, setType] = React.useState(listOfTypes[0].value);
+  const [level, setLevel] = React.useState(listOfLevels[0].value);
+  const [country, setCountry] = React.useState(listOfCountries[0].value);
+  const [university, setUniversity] = React.useState(listOfUniversities[0].value);
 
   const handleChangeCountry = (event) => {
     setCountry(event.target.value);
@@ -108,6 +73,14 @@ function JoinUs() {
 
   const handleChangeUniversity = (event) => {
     setUniversity(event.target.value);
+  };
+
+  const handleChangeType = (event) => {
+    setType(event.target.value);
+  };
+
+  const handleChangeLevel = (event) => {
+    setLevel(event.target.value);
   };
 
   const open = () => setOpen(true);
@@ -145,6 +118,44 @@ function JoinUs() {
           />
 
           <TextField
+            fullWidth
+            variant='outlined'
+            className={classes.area}
+            id='id-typeDetail'
+            label='Detail of study'
+            InputProps={{
+              disableUnderline: true,
+              classes: {
+                focused: classes.focused,
+                notchedOutline: classes.notchedOutline,
+              },
+            }}
+          />
+
+          <TextField
+            select
+            fullWidth
+            value={level}
+            variant='outlined'
+            id='id-country'
+            onChange={handleChangeLevel}
+            className={classes.area}
+            label='Select level'
+            InputProps={{
+              disableUnderline: true,
+              classes: {
+                notchedOutline: classes.notchedOutline,
+              },
+            }}
+          >
+            {listOfLevels.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+
+          <TextField
             select
             fullWidth
             value={country}
@@ -160,7 +171,30 @@ function JoinUs() {
               },
             }}
           >
-            {countries.map((option) => (
+            {listOfCountries.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+
+          <TextField
+            select
+            fullWidth
+            value={type}
+            variant='outlined'
+            id='id-country'
+            onChange={handleChangeType}
+            className={classes.area}
+            label='Select type'
+            InputProps={{
+              disableUnderline: true,
+              classes: {
+                notchedOutline: classes.notchedOutline,
+              },
+            }}
+          >
+            {listOfTypes.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>
@@ -183,7 +217,7 @@ function JoinUs() {
               },
             }}
           >
-            {universities.map((option) => (
+            {listOfUniversities.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>
