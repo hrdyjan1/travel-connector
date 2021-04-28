@@ -4,6 +4,7 @@ import Modal from '@material-ui/core/Modal';
 import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import firebase from 'firebase/app';
 import { SectionHeader } from '../mui/SectionHeader';
 import { listOfCountries, listOfTypes, listOfUniversities, listOfLevels } from '../../data/index';
 
@@ -61,7 +62,9 @@ const useStyles = makeStyles((theme) => ({
 
 function JoinUs() {
   const classes = useStyles();
+  const [name, setName] = React.useState('');
   const [isOpen, setOpen] = React.useState(false);
+  const [typeDetail, setTypeDetail] = React.useState('');
   const [type, setType] = React.useState(listOfTypes[0].value);
   const [level, setLevel] = React.useState(listOfLevels[0].value);
   const [country, setCountry] = React.useState(listOfCountries[0].value);
@@ -79,8 +82,16 @@ function JoinUs() {
     setType(event.target.value);
   };
 
+  const handleChangeName = (event) => {
+    setName(event.target.value);
+  };
+
   const handleChangeLevel = (event) => {
     setLevel(event.target.value);
+  };
+
+  const handleChangeTypeDetail = (event) => {
+    setTypeDetail(event.target.value);
   };
 
   const open = () => setOpen(true);
@@ -88,6 +99,19 @@ function JoinUs() {
 
   const handleSubmit = () => {
     close();
+    firebase
+      .firestore()
+      .collection('students')
+      .add({
+        type,
+        level,
+        country,
+        university,
+        name,
+        typeDetail,
+        companyLogo:
+          'https://media4.s-nbcnews.com/i/newscms/2021_09/3453866/210302-donald-trump-cpac-se-502p_4679926547fc16d42d26936ecda18a3d.jpg',
+      });
   };
 
   return (
@@ -104,6 +128,7 @@ function JoinUs() {
           />
           <TextField
             fullWidth
+            onChange={handleChangeName}
             variant='outlined'
             className={classes.area}
             id='id-name'
@@ -121,6 +146,7 @@ function JoinUs() {
             fullWidth
             variant='outlined'
             className={classes.area}
+            onChange={handleChangeTypeDetail}
             id='id-typeDetail'
             label='Detail of study'
             InputProps={{

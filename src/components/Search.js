@@ -2,6 +2,7 @@ import React from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { SectionHeader } from './mui/SectionHeader';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 import MenuItem from '@material-ui/core/MenuItem';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
@@ -15,10 +16,10 @@ import {
   listOfUniversities,
   listOfLevels,
   listOfTypes,
-  students,
   TYPE,
   choices,
 } from '../data/index';
+import firebase from 'firebase/app';
 
 const useStyles = makeStyles((theme) => ({
   searchInputContainer: {
@@ -141,6 +142,9 @@ function getFilteredStudents(students, filters) {
 
 const Search = (props) => {
   const { data, className, ...rest } = props;
+  const [students] = useCollectionData(firebase.firestore().collection('students'));
+  console.log(students)
+
 
   const theme = useTheme();
   const [value, setValue] = React.useState(null);
