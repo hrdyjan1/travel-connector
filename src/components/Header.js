@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Section } from './mui/Section';
+import { JoinUs } from './spec/JoinUs';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,7 +44,7 @@ function Header() {
               Travel Connector
             </Typography>
             <IconButton edge='start' color='inherit' aria-label='menu'>
-              <MenuIcon />
+              <JoinUs />
             </IconButton>
           </Toolbar>
         </Section>

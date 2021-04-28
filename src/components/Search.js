@@ -143,7 +143,6 @@ function getFilteredStudents(students, filters) {
 const Search = (props) => {
   const { data, className, ...rest } = props;
   const [students] = useCollectionData(firebase.firestore().collection('students'));
-  console.log(students)
 
 
   const theme = useTheme();
@@ -152,7 +151,7 @@ const Search = (props) => {
   const [choice, setChoice] = React.useState(choices[0]);
   const isSearching = choices[0].value === choice.value;
 
-  const filteredStudents = getFilteredStudents(students, filters);
+  const filteredStudents = getFilteredStudents(students, filters) || [];
 
   const handleChangeChoice = (event) => {
     setValue(null);

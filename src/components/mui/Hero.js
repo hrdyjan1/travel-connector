@@ -38,9 +38,9 @@ const Hero = props => {
             subtitle="At every party there are two kinds of people – those who want to go home and those who don’t. The trouble is, they are usually married to each other."
             ctaGroup={[
               <JoinUs />,
-              <Button variant="outlined" color="primary" size="large">
-                Why connect
-              </Button>,
+            //   <Button variant="outlined" color="primary" size="large">
+            //     Why connect
+            //   </Button>,
             ]}
             align={isMd ? 'left' : 'center'}
             disableGutter
