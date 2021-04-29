@@ -259,6 +259,16 @@ function JoinUs() {
           >
             Add me
           </Button>
+          <Button
+            variant='contained'
+            color='secondary'
+            size='large'
+            type='button'
+            onClick={close}
+            className={classes.submit}
+          >
+            Close
+          </Button>
         </form>
       </Modal>
     </div>
