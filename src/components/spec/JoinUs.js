@@ -28,13 +28,17 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       margin: '2px',
       width: 'unset',
+      padding: '50px',
+      overflow:'scroll',
     },
     fontfamily: 'Georgia',
-    padding: '20px',
+    paddingInline: '100px',
+    padding: '60px',
     width: '100%',
-    maxWidth: '500px',
+    maxWidth: '700px',
     background: '#f4f7f8',
     borderRadius: theme.shape.borderRadius,
+    
   },
   area: {
     background: 'rgba(255,255,255,.1)',
