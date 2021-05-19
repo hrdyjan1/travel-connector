@@ -21,7 +21,7 @@ const LEVEL = {
 const COUNTRY = {
   USA: 'USA',
   JAPAN: 'Japan',
-  FRANCE: 'France',
+  FRANCE: 'France123',
   GERMANY: 'Germany',
   IRELAND: 'Ireland',
 };
